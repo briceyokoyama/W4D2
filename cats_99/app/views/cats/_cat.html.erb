@@ -1,0 +1,12 @@
+<tr>
+<td><%= kitty.name %></td>
+<td><%= kitty.age %></td>
+<td><%= kitty.color %></td>
+<td><%= kitty.sex %></td>
+<td><%= kitty.description %></td>
+<% if show %>
+  <td><%= link_to "Show", cat_url(kitty) %></td>
+<% else %>
+  <td><%= link_to "Edit", edit_cat_url(kitty) %></td>
+<% end %>
+</tr>

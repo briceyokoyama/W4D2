@@ -1,0 +1,7 @@
+<table>
+  <%= render 'table_header' %>
+  <tbody>
+  <%= render 'cat', kitty: @kitty, show: false %>
+  </tbody>
+</table>
+<a href="<%= cats_url %>">Index</a>

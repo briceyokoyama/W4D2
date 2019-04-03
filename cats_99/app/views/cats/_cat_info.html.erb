@@ -1,0 +1,75 @@
+<!-- 
+
+  x Change action
+  input type hidden
+  x remove instance variables
+  x submit button text
+  x header
+
+
+ -->
+ <% 
+  unless kitty.persisted?
+    header_text = "Add New Cat"
+    submit_text = "Add Cat"
+    action = cats_url
+    hidden = ""
+  else
+    header_text = "Edit #{kitty.name.empty? ? 'cat' : kitty.name }"
+    submit_text = "Edit"
+    action = cat_url(kitty)
+    hidden = "<input type='hidden' name='_method' value='patch'>"
+  end
+ 
+ %>
+
+<h1><%= header_text %></h1>
+<% unless kitty.errors.full_messages.empty? %>
+<%= kitty.errors.full_messages %>
+<% end %>
+
+<form action="<%= action %>" method="post">
+  <%= hidden.html_safe %>
+  <label>
+    Name:
+    <input type="text" name="cat[name]" value="<%= kitty.name %>">
+  </label>
+  <br>
+  <label>
+    Birthdate:
+    <input type="date" name="cat[birth_date]" value="<%= kitty.birth_date %>">
+  </label>
+  <br>
+  <label>
+    Gender:
+    <br>
+    <input type="radio" name="cat[sex]" value="M" <%= (kitty.sex == "M") ? "checked" : "" %>> Male<br>
+    <input type="radio" name="cat[sex]" value="F" <%= (kitty.sex == "F") ? "checked" : "" %>> Female<br>
+    <input type="radio" name="cat[sex]" value="O" <%= (kitty.sex == "O") ? "checked" : "" %>> Other
+  </label>
+  <br>
+  <label>
+    Color:
+    <select name="cat[color]">
+      <!-- ['White', 'Black', 'Tabby', 'Orange', 'Grey', 'Spray-painted'] -->
+      <option disabled <%= (kitty.color.nil?) ? "selected" : "" %>>Choose Color</option>
+      <option value="Orange" <%= (kitty.color == "Orange") ? "selected" : "" %>>Orange</option>
+      <option value="Black" <%= (kitty.color == "Black") ? "selected" : "" %>>Black</option>
+      <option value="White" <%= (kitty.color == "White") ? "selected" : "" %>>White</option>
+      <option value="Tabby" <%= (kitty.color == "Tabby") ? "selected" : "" %>>Tabby</option>
+      <option value="Grey" <%= (kitty.color == "Grey") ? "selected" : "" %>>Grey</option>
+      <option value="Spray-painted" <%= (kitty.color == "Spray-painted") ? "selected" : "" %>>Spray-painted</option>
+    </select>
+  </label>
+  <br>
+  <label>
+    Description:
+    <br>
+    <textarea name="cat[description]" rows=20 cols=50
+      placeholder="Describe your cat here..."><%= kitty.description %></textarea>
+  </label>
+  <br>
+  <input type="submit" value="<%= submit_text %>">
+
+
+</form>

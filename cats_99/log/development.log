@@ -1,0 +1,1623 @@
+  [1m[35m (594.1ms)[0m  [1m[35mCREATE DATABASE "cats_99_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (275.8ms)[0m  [1m[35mCREATE DATABASE "cats_99_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (139.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2260121364129154575)[0m
+  ↳ bin/rails:9
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20190402210119)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (51.6ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190402210119_create_cats.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190402210119"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (13.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-02 21:06:11.492964"], ["updated_at", "2019-04-02 21:06:11.492964"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2260121364129154575)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (31.5ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2010-01-01"], ["color", "Orange"], ["name", "Garfield"], ["sex", "M"], ["description", "I like lasagna!"], ["created_at", "2019-04-02 21:17:57.726870"], ["updated_at", "2019-04-02 21:17:57.726870"]]
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCat Load (16.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/cats" for ::1 at 2019-04-02 14:40:03 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:2
+  Rendered cats/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 1994ms (Views: 1894.8ms | ActiveRecord: 7.9ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (11.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2019-02-04"], ["color", "Grey"], ["name", "Tom"], ["sex", "M"], ["description", "I hate Jerry!!!!"], ["created_at", "2019-04-02 21:43:52.545586"], ["updated_at", "2019-04-02 21:43:52.545586"]]
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+Started GET "/cats" for ::1 at 2019-04-02 14:44:02 -0700
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:2
+  Rendered cats/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 127ms (Views: 125.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 14:45:48 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:2
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 119ms (Views: 117.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 14:48:03 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:2
+  Rendered cats/_cat.html.erb (0.9ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 75ms (Views: 73.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 14:49:42 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:12
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 164ms (Views: 163.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 14:50:59 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.2ms)
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 130ms (Views: 128.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/2" for ::1 at 2019-04-02 14:51:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  Rendered cats/show.html.erb within layouts/application (399.4ms)
+Completed 500 Internal Server Error in 431ms (ActiveRecord: 0.8ms)
+
+
+
+NameError - undefined local variable or method `kitty' for #<#<Class:0x00007fcd01d6f5f8>:0x00007fcd0379c2a0>
+Did you mean?  @kitty:
+  app/views/cats/show.html.erb:3:in `_app_views_cats_show_html_erb__1179071699033530201_70259260815280'
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/b59faa64dd498a49/variables" for ::1 at 2019-04-02 14:51:35 -0700
+Started GET "/cats/2" for ::1 at 2019-04-02 14:51:46 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (1.0ms)
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/show.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 130ms (Views: 125.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats/2" for ::1 at 2019-04-02 14:55:33 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (1.3ms)
+  Rendered cats/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 145ms (Views: 114.4ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 14:55:37 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.2ms)
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:15:40 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 146ms (Views: 145.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:16:39 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 108ms (Views: 107.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:19:00 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 74ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:19:14 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 484ms (Views: 483.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:19:25 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:23:18 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 168ms (Views: 162.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:23:27 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 75ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:24:18 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 77ms (Views: 76.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:24:24 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:25:02 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 124ms (Views: 123.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:25:20 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 75ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:25:45 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:25:53 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:26:02 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 58ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:27:16 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:27:18 -0700
+
+AbstractController::ActionNotFound - The action 'create' could not be found for CatsController:
+
+Started POST "/__better_errors/afca4a14e94e8712/variables" for ::1 at 2019-04-02 15:27:18 -0700
+Started POST "/cats" for ::1 at 2019-04-02 15:27:25 -0700
+
+AbstractController::ActionNotFound - The action 'create' could not be found for CatsController:
+
+Started POST "/__better_errors/52ef905d9da21230/variables" for ::1 at 2019-04-02 15:27:26 -0700
+Started GET "/cats/new" for ::1 at 2019-04-02 15:28:14 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 107ms (Views: 106.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats?cat%5Bname%5D=&cat%5Bbirth_date%5D=&cat%5Bdescription%5D=" for ::1 at 2019-04-02 15:28:15 -0700
+Processing by CatsController#index as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "description"=>""}}
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (2.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.1ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 152ms (Views: 67.3ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/cats?cat%5Bname%5D=CATNAME&cat%5Bbirth_date%5D=2019-04-12&cat%5Bsex%5D=M&cat%5Bcolor%5D=White&cat%5Bdescription%5D=FUTURECAT" for ::1 at 2019-04-02 15:29:02 -0700
+Processing by CatsController#index as HTML
+  Parameters: {"cat"=>{"name"=>"CATNAME", "birth_date"=>"2019-04-12", "sex"=>"M", "color"=>"White", "description"=>"FUTURECAT"}}
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 149ms (Views: 147.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats?cat%5Bname%5D=CATNAME&cat%5Bbirth_date%5D=2019-04-12&cat%5Bsex%5D=M&cat%5Bcolor%5D=White&cat%5Bdescription%5D=FUTURECAT" for ::1 at 2019-04-02 15:29:40 -0700
+Processing by CatsController#index as HTML
+  Parameters: {"cat"=>{"name"=>"CATNAME", "birth_date"=>"2019-04-12", "sex"=>"M", "color"=>"White", "description"=>"FUTURECAT"}}
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 85ms (Views: 84.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:29:43 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:29:55 -0700
+
+AbstractController::ActionNotFound - The action 'create' could not be found for CatsController:
+
+Started POST "/__better_errors/50e6e884e2ce4c13/variables" for ::1 at 2019-04-02 15:29:55 -0700
+Started POST "/__better_errors/50e6e884e2ce4c13/eval" for ::1 at 2019-04-02 15:30:08 -0700
+Started GET "/new" for ::1 at 2019-04-02 15:37:37 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats/new" for ::1 at 2019-04-02 15:37:46 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 131ms (Views: 96.8ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:38:07 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"AstroCat", "birth_date"=>"2019-04-01", "sex"=>"F", "description"=>""}}
+Completed 500 Internal Server Error in 215ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `kitty' for #<CatsController:0x00007fcd037a49f0>
+Did you mean?  @kitty:
+  app/controllers/cats_controller.rb:20:in `create'
+
+Started POST "/__better_errors/f65480fd9161c580/variables" for ::1 at 2019-04-02 15:38:07 -0700
+Started POST "/cats" for ::1 at 2019-04-02 15:38:28 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"AstroCat", "birth_date"=>"2019-04-01", "sex"=>"F", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 128ms (Views: 96.8ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:39:27 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"AstroCat", "birth_date"=>"2019-04-01", "sex"=>"F", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 209ms (Views: 203.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:39:31 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"AstroCat", "birth_date"=>"2019-04-01", "sex"=>"M", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:39:34 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"AstroCat", "birth_date"=>"2019-04-01", "sex"=>"O", "description"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 15:41:52 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 130ms (Views: 127.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:41:57 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:43:17 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 122ms (Views: 120.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 15:43:48 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:43:58 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "color"=>"Black", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:44:04 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "color"=>"Black", "description"=>"Helloe!"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 24.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:44:08 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "color"=>"White", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 27.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:44:11 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "color"=>"Spray-painted", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 15:45:11 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "color"=>"Spray-painted", "description"=>"helloe!"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 123ms (Views: 116.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:03:24 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 226ms (Views: 223.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:22:21 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 186ms (Views: 136.6ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 16:22:25 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.5ms)
+  Rendered cats/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 70ms (Views: 68.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:23:22 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"O", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[36mCat Create (14.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "1972-08-22"], ["color", "Tabby"], ["name", "felix"], ["sex", "O"], ["description", "I'm an OOOOOOLD cat and I like Pizza."], ["created_at", "2019-04-02 23:23:22.231268"], ["updated_at", "2019-04-02 23:23:22.231268"]]
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:20
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 61ms (ActiveRecord: 41.3ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:23:22 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 86ms (Views: 82.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:23:35 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (5.1ms)
+  Rendered cats/edit.html.erb within layouts/application (19.1ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/cats/_cat_info.html.erb:18:in `_app_views_cats__cat_info_html_erb___4610897255392261877_70259251625720'
+  app/views/cats/edit.html.erb:1:in `_app_views_cats_edit_html_erb__1837774344687155569_70259260697800'
+  app/controllers/cats_controller.rb:29:in `edit'
+
+Started POST "/__better_errors/7db8511433440447/variables" for ::1 at 2019-04-02 16:23:36 -0700
+Started POST "/__better_errors/7db8511433440447/eval" for ::1 at 2019-04-02 16:23:49 -0700
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:24:32 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (2.6ms)
+  Rendered cats/edit.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 149ms (Views: 116.5ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:26:25 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.2ms)
+  Rendered cats/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 65ms (Views: 61.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:26:39 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"M", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+No template found for CatsController#update, rendering head :no_content
+Completed 204 No Content in 117ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:26:43 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"M", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+No template found for CatsController#update, rendering head :no_content
+Completed 204 No Content in 115ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:26:52 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"M", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+No template found for CatsController#update, rendering head :no_content
+Completed 204 No Content in 105ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:26:53 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"M", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+No template found for CatsController#update, rendering head :no_content
+Completed 204 No Content in 113ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:28:57 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.1ms)
+  Rendered cats/edit.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 140ms (Views: 96.0ms | ActiveRecord: 7.6ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:29:04 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (21.0ms)[0m  [1m[33mUPDATE "cats" SET "sex" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["sex", "F"], ["updated_at", "2019-04-02 23:29:04.980284"], ["id", 3]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 84ms (ActiveRecord: 22.4ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:29:05 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.2ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 48ms (Views: 46.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:29:11 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.9ms)
+  Rendered cats/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:29:16 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I'm an OOOOOOLD cat and I like Pizza."}, "id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.3ms)
+  Rendered cats/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 37ms (Views: 29.3ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:29:38 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>""}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.2ms)
+  Rendered cats/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 34ms (Views: 27.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:29:48 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (0.8ms)[0m  [1m[33mUPDATE "cats" SET "description" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["description", "I love pizza"], ["updated_at", "2019-04-02 23:29:48.198124"], ["id", 3]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:29:48 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 83ms (Views: 81.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:30:12 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (2.5ms)
+  Rendered cats/edit.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:30:17 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.2ms)
+  Rendered cats/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:30:32 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.4ms)
+  Rendered cats/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 27.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:30:46 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (0.9ms)
+  Rendered cats/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:30:49 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"asdffas", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (1.0ms)[0m  [1m[33mUPDATE "cats" SET "name" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["name", "asdffas"], ["updated_at", "2019-04-02 23:30:49.458781"], ["id", 3]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:30:49 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.2ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 70ms (Views: 68.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:30:54 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (2.0ms)
+  Rendered cats/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:30:57 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.4ms)
+  Rendered cats/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 38ms (Views: 27.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:31:48 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (1.0ms)
+  Rendered cats/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:31:51 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.2ms)
+  Rendered cats/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:31:57 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.3ms)
+  Rendered cats/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 30.9ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:32:00 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (0.7ms)[0m  [1m[33mUPDATE "cats" SET "name" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["name", "felix"], ["updated_at", "2019-04-02 23:32:00.096289"], ["id", 3]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:32:00 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:32:03 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.1ms)
+  Rendered cats/edit.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:32:25 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"I love pizza"}, "id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.5ms)
+  Rendered cats/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 34ms (Views: 27.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:33:33 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 149ms (Views: 146.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:35:54 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 118ms (Views: 116.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:35:59 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.4ms)
+  Rendered cats/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:36:55 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.3ms)
+  Rendered cats/edit.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 140ms (Views: 138.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:37:02 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>""}, "id"=>"3"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (3.1ms)
+  Rendered cats/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 46ms (Views: 37.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 16:37:27 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.0ms)
+  Rendered cats/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:37:31 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "description"=>"asdfasdf"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (3.8ms)
+  Rendered cats/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 41ms (Views: 32.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:38:26 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "description"=>"asdfasdf"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (4.3ms)
+  Rendered cats/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 73ms (Views: 28.3ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:39:23 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Lunchmeat", "birth_date"=>"2019-04-09", "sex"=>"F", "color"=>"Spray-painted", "description"=>"Fat"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[36mCat Create (0.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2019-04-09"], ["color", "Spray-painted"], ["name", "Lunchmeat"], ["sex", "F"], ["description", "Fat"], ["created_at", "2019-04-02 23:39:23.341363"], ["updated_at", "2019-04-02 23:39:23.341363"]]
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:20
+Redirected to http://localhost:3000/cats/4
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/cats/4" for ::1 at 2019-04-02 16:39:23 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 95ms (Views: 92.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/4/edit" for ::1 at 2019-04-02 16:39:29 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.5ms)
+  Rendered cats/edit.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 84ms (Views: 80.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/4/edit" for ::1 at 2019-04-02 16:40:51 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.0ms)
+  Rendered cats/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 16:42:04 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.0ms)
+  Rendered cats/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 152ms (Views: 112.7ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:42:10 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"", "description"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (3.8ms)
+  Rendered cats/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 40ms (Views: 29.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:42:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (1.1ms)
+  Rendered cats/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 71ms (Views: 68.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:43:33 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:43:34 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.2ms)
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/_cat.html.erb (0.2ms)
+  Rendered cats/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 81ms (Views: 79.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:44:07 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:47:33 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/show.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 140ms (Views: 138.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:47:34 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats/2" for ::1 at 2019-04-02 16:47:35 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (1.1ms)
+  Rendered cats/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:47:37 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  [1m[36mCat Load (2.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.8ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 56ms (Views: 53.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:47:38 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (4.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (1.7ms)
+  Rendered cats/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 55ms (Views: 48.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:47:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  [1m[36mCat Load (2.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.6ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 55ms (Views: 51.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:47:42 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (1.0ms)
+  Rendered cats/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 46ms (Views: 44.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:48:46 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/show.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 96ms (Views: 94.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/3/edit" for ::1 at 2019-04-02 16:48:47 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.3ms)
+  Rendered cats/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 63ms (Views: 60.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/cats/3" for ::1 at 2019-04-02 16:48:57 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"felix", "birth_date"=>"1972-08-22", "sex"=>"F", "color"=>"Tabby", "description"=>"Get edited"}, "id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (0.5ms)[0m  [1m[33mUPDATE "cats" SET "description" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["description", "Get edited"], ["updated_at", "2019-04-02 23:48:58.032003"], ["id", 3]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/3
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:48:58 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/show.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 64ms (Views: 61.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:48:59 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 57ms (Views: 55.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-04-02 16:49:01 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:49:02 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.6ms)
+  [1m[36mCat Load (2.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.9ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 52ms (Views: 48.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:50:37 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 174ms (Views: 173.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:50:39 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/1/edit" for ::1 at 2019-04-02 16:50:40 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.5ms)
+  Rendered cats/edit.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/cats/1" for ::1 at 2019-04-02 16:50:48 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"", "birth_date"=>"2010-01-01", "sex"=>"M", "color"=>"Orange", "description"=>"I like lasagna!"}, "id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:36
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (2.2ms)
+  Rendered cats/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 38ms (Views: 30.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/cats/1" for ::1 at 2019-04-02 16:50:56 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"catter", "birth_date"=>"2010-01-01", "sex"=>"M", "color"=>"Orange", "description"=>"I like lasagna!"}, "id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[36mCat Update (0.6ms)[0m  [1m[33mUPDATE "cats" SET "name" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["name", "catter"], ["updated_at", "2019-04-02 23:50:56.822427"], ["id", 1]]
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/1
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-02 16:50:56 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:51:37 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.0ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 107ms (Views: 106.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:52:33 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.1ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (284.8ms)
+Completed 500 Internal Server Error in 304ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `links_to' for #<#<Class:0x00007fcd048e4be8>:0x00007fccfe576840>
+Did you mean?  link_to:
+  app/views/cats/index.html.erb:9:in `_app_views_cats_index_html_erb__2824046046418894657_70259208564220'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/5335d4f77bc7e102/variables" for ::1 at 2019-04-02 16:52:34 -0700
+Started GET "/cats" for ::1 at 2019-04-02 16:52:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.0ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 178ms (Views: 176.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 16:52:43 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (1.1ms)
+  Rendered cats/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 80ms (Views: 78.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/4" for ::1 at 2019-04-02 16:52:48 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.9ms)
+  Rendered cats/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 67ms (Views: 65.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:52:49 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  [1m[36mCat Load (1.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (0.7ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-02 16:52:50 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (3.4ms)
+  Rendered cats/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 40ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-02 16:53:18 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"celebration cat", "birth_date"=>"2019-04-02", "sex"=>"O", "color"=>"Spray-painted", "description"=>"In memory of this great website"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[36mCat Create (0.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2019-04-02"], ["color", "Spray-painted"], ["name", "celebration cat"], ["sex", "O"], ["description", "In memory of this great website"], ["created_at", "2019-04-02 23:53:18.230752"], ["updated_at", "2019-04-02 23:53:18.230752"]]
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:20
+Redirected to http://localhost:3000/cats/5
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/cats/5" for ::1 at 2019-04-02 16:53:18 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (1.0ms)
+  Rendered cats/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/5/edit" for ::1 at 2019-04-02 16:53:21 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_cat_info.html.erb (0.9ms)
+  Rendered cats/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/cats/5" for ::1 at 2019-04-02 16:53:23 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"cat"=>{"name"=>"celebration cat", "birth_date"=>"2019-04-02", "sex"=>"O", "color"=>"Spray-painted", "description"=>"In memory of this great website"}, "id"=>"5"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:36
+Redirected to http://localhost:3000/cats/5
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/cats/5" for ::1 at 2019-04-02 16:53:23 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.9ms)
+  Rendered cats/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-02 16:53:25 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/_table_header.html.erb (0.5ms)
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/_cat.html.erb (1.5ms)
+  Rendered cats/_cat.html.erb (0.4ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/_cat.html.erb (0.3ms)
+  Rendered cats/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2260121364129154575)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCatRentalRequests (20190402235652)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (52.0ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "start_date" date NOT NULL, "end_date" date NOT NULL, "status" character varying DEFAULT 'PENDING' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190402235652_create_cat_rental_requests.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  ↳ db/migrate/20190402235652_create_cat_rental_requests.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190402235652"]]
+  ↳ bin/rails:9
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2260121364129154575)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
